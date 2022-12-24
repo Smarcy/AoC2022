@@ -8,7 +8,43 @@ var
 for line in input.lines:
   var
     enemyShape = line[0]
-    myShape = line[2]
+    expectedOutcome = line[2]
+    myShape = 'O'
+
+  case expectedOutcome:
+    of 'X':
+      case enemyShape:
+        of 'A':
+          myShape = 'Z'
+        of 'B':
+          myShape = 'X'
+        of 'C':
+          myShape = 'Y'
+        else:
+          echo "ERROR 1"
+    of 'Y':
+      case enemyShape:
+        of 'A':
+          myShape = 'X'
+        of 'B':
+          myShape = 'Y'
+        of 'C':
+          myShape = 'Z'
+        else:
+          echo "ERROR 1.2"
+    of 'Z':
+      case enemyShape:
+        of 'A':
+          myShape = 'Y'
+        of 'B':
+          myShape = 'Z'
+        of 'C':
+          myShape = 'X'
+        else:
+          echo "ERROR 1.3"
+    else:
+      echo "ERROR 2"
+
 
   case myShape:
     of 'X':
@@ -23,7 +59,7 @@ for line in input.lines:
           inc(playerScore, 7)
           inc(enemyScore, 3)
         else:
-          discard
+          echo "ERROR 3"
     of 'Y':
       case enemyShape:
         of 'A':
@@ -36,7 +72,7 @@ for line in input.lines:
           inc(playerScore, 2)
           inc(enemyScore, 9)
         else:
-          discard
+          echo "ERROR 4"
     of 'Z':
       case enemyShape:
         of 'A':
@@ -49,16 +85,16 @@ for line in input.lines:
           inc(playerScore, 6)
           inc(enemyScore, 6)
         else:
-          discard
+          echo "ERROR 5"
     else:
-      discard
+      echo "ERROR 6"
 
 echo &"PlayerScore: {playerScore}"
 echo &"EnemyScore: {enemyScore}"
 
 #[ Output:
-PlayerScore: 10718
-EnemyScore: 15876
+PlayerScore: 14652
+EnemyScore: 10374
 
-Solved
+Solved.
 ]#
