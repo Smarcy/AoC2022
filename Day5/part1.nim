@@ -28,7 +28,6 @@ for i in 0..9:
   discard input.readLine
 
 for line in input.lines:
-
   var
     lineSeq = line.split(" ")
     quantity = lineSeq[1].parseInt
@@ -38,8 +37,6 @@ for line in input.lines:
 
   for i in 0 ..< quantity:
     tmpHolder.add(cargo[moveFrom].pop)
-
-  for i in 0 ..< quantity:
     cargo[moveTo].add(tmpHolder[i])
 
 printCargo()
